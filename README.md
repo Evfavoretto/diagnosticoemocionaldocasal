@@ -1,4 +1,3 @@
-
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -26,6 +25,20 @@
     }
 
     *{box-sizing:border-box}
+
+    /* ✅ FORÇAR SUMIR TÍTULO/HEADER DO GITHUB PAGES (tema/Jekyll) */
+    header, .site-header, .page-header, .project-name, .project-tagline,
+    #header, #site-header, #page-header,
+    body > h1:first-child, body > header:first-child,
+    .markdown-body > h1:first-child,
+    .container-lg > h1:first-child{
+      display:none !important;
+      height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+    }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -72,7 +85,7 @@
       background: rgba(108,75,191,0.12);
       border: 1px solid rgba(108,75,191,0.18);
       color: #3b2a5f;
-      font-weight: 650;
+      font-weight: 700;
       letter-spacing: .2px;
       font-size: 13px;
     }
@@ -129,15 +142,43 @@
       color: var(--muted);
       font-size: 14.5px;
     }
+
+    /* ✅ Centralizado + melhor estética no bloco "Como você recebe o diagnóstico" */
     .rule{
       margin-top: 14px;
-      padding: 14px;
-      border-radius: 14px;
+      padding: 16px;
+      border-radius: 16px;
       background: rgba(47,125,225,0.08);
       border: 1px solid rgba(47,125,225,0.18);
       color: #244b7a;
       font-size: 14px;
+      text-align:center;
     }
+    .rule .ruleTitle{
+      display:inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.90);
+      border: 1px solid rgba(36,75,122,0.18);
+      font-weight: 850;
+      color:#2d3f66;
+      margin-bottom: 10px;
+    }
+    .rule .steps{
+      display:grid;
+      gap:10px;
+      margin-top: 6px;
+      text-align:left;
+    }
+    .rule .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 12px;
+      box-shadow: 0 8px 18px rgba(20,12,45,0.06);
+      color:#2a3242;
+    }
+    .rule .step b{ color:#2d2250; }
 
     /* Sections */
     .section{
@@ -356,7 +397,7 @@
 
     <div class="top">
       <div class="hero">
-        <div class="badge"> Diagnóstico Emocional de Casal</div>
+        <div class="badge">🧠 Diagnóstico Emocional de Casal</div>
         <h1 class="title">“Onde estamos emocionalmente como casal?”</h1>
         <p class="subtitle">
           Este diagnóstico não é para apontar culpados. É para revelar onde o vínculo está desorganizado
@@ -364,9 +405,9 @@
         </p>
 
         <div class="mini">
-          <div class="pill"> Respostas rápidas: SIM / NÃO</div>
-          <div class="pill"> Clareza sobre o vínculo</div>
-          <div class="pill"> Sem culpa, com cuidado</div>
+          <div class="pill">✅ Respostas rápidas: SIM / NÃO</div>
+          <div class="pill">🧭 Clareza sobre o vínculo</div>
+          <div class="pill">🤝 Sem culpa, com cuidado</div>
         </div>
       </div>
 
@@ -377,14 +418,18 @@
           Responda com honestidade — não com o que deveria ser,<br />
           mas com o que realmente é hoje.
         </p>
+
         <div class="rule">
-          <strong>Como você recebe o diagnóstico:</strong><br />
-          Ao final, clique em <strong>“Enviar respostas no WhatsApp”</strong>.<br />
-          As respostas vão prontas, e eu te devolvo o diagnóstico.
+          <div class="ruleTitle">Como você recebe o diagnóstico</div>
+          <div class="steps">
+            <div class="step"><b>Passo 1:</b> responda todas as perguntas marcando <b>SIM</b> ou <b>NÃO</b>.</div>
+            <div class="step"><b>Passo 2:</b> no final, clique em <b>“Enviar respostas no WhatsApp”</b>.</div>
+            <div class="step"><b>Passo 3:</b> eu te devolvo a leitura do diagnóstico e o ponto central do vínculo.</div>
+          </div>
+          <p class="small" style="margin:10px 0 0; text-align:center;">
+            *Se preferir, apenas uma pessoa pode responder pelo casal.
+          </p>
         </div>
-        <p class="small">
-          *Se preferir, apenas um pode responder pelo casal.
-        </p>
       </div>
     </div>
 
@@ -393,7 +438,7 @@
 
       <!-- BLOCO 1 -->
       <div class="section">
-        <h2> Bloco 1 — Conexão e Presença</h2>
+        <h2>Bloco 1 — Conexão e Presença</h2>
         <p class="note">O vínculo começa a enfraquecer quando o casal funciona, mas deixa de se encontrar.</p>
 
         <div class="q">
@@ -405,7 +450,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">2.</span><span class="t">As conversas são mais profundas? (rotina, tarefas)?</span></div>
+          <div class="qtext"><span class="n">2.</span><span class="t">As conversas são mais profundas ou apenas funcionais (rotina, tarefas)?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q2" id="q2s" value="SIM" required><label for="q2s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q2" id="q2n" value="NÃO"><label for="q2n"><span class="dot"></span>NÃO</label></span>
@@ -429,19 +474,19 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">5.</span><span class="t">Existe sensação de parceria?</span></div>
+          <div class="qtext"><span class="n">5.</span><span class="t">Há sensação de parceria ou de convivência automática?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q5" id="q5s" value="SIM" required><label for="q5s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q5" id="q5n" value="NÃO"><label for="q5n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert"> Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
+        <div class="alert">👉 Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
       <!-- BLOCO 2 -->
       <div class="section">
-        <h2> Bloco 2 — Comunicação e Escuta</h2>
+        <h2>Bloco 2 — Comunicação e Escuta</h2>
         <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
 
         <div class="q">
@@ -453,7 +498,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">7.</span><span class="t">As conversas terminam em entendimento?</span></div>
+          <div class="qtext"><span class="n">7.</span><span class="t">As conversas terminam em entendimento ou em defesa?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q7" id="q7s" value="SIM" required><label for="q7s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q7" id="q7n" value="NÃO"><label for="q7n"><span class="dot"></span>NÃO</label></span>
@@ -461,7 +506,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">8.</span><span class="t">Vocês tem abertura para conversar de todos os assuntos?</span></div>
+          <div class="qtext"><span class="n">8.</span><span class="t">Há medo de falar certos assuntos para evitar conflito?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q8" id="q8s" value="SIM" required><label for="q8s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q8" id="q8n" value="NÃO"><label for="q8n"><span class="dot"></span>NÃO</label></span>
@@ -477,19 +522,19 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">10.</span><span class="t">Existe curiosidade sobre a conversa?</span></div>
+          <div class="qtext"><span class="n">10.</span><span class="t">Existe mais acusação ou mais curiosidade?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q10" id="q10s" value="SIM" required><label for="q10s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q10" id="q10n" value="NÃO"><label for="q10n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert"> Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
+        <div class="alert">👉 Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
       </div>
 
       <!-- BLOCO 3 -->
       <div class="section">
-        <h2> Bloco 3 — Afeto, Intimidade e Escolha</h2>
+        <h2>Bloco 3 — Afeto, Intimidade e Escolha</h2>
         <p class="note">Afeto e admiração são o combustível do vínculo. Sem isso, o casal entra em sobrevivência.</p>
 
         <div class="q">
@@ -501,7 +546,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">12.</span><span class="t">A intimidade é viva?</span></div>
+          <div class="qtext"><span class="n">12.</span><span class="t">A intimidade é viva ou evitada?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q12" id="q12s" value="SIM" required><label for="q12s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q12" id="q12n" value="NÃO"><label for="q12n"><span class="dot"></span>NÃO</label></span>
@@ -532,16 +577,16 @@
           </div>
         </div>
 
-        <div class="alert"> Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
+        <div class="alert">👉 Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
       </div>
 
       <!-- BLOCO 4 -->
       <div class="section">
-        <h2> Bloco 4 — Conflitos e Padrões Repetidos</h2>
+        <h2>Bloco 4 — Conflitos e Padrões Repetidos</h2>
         <p class="note">Conflitos não resolvidos viram distância. Distância vira silêncio. E o silêncio vira solidão a dois.</p>
 
         <div class="q">
-          <div class="qtext"><span class="n">16.</span><span class="t">Vocês conseguem resolver os conflitos e avançar, sem ficarem presos sempre aos mesmos temas?</span></div>
+          <div class="qtext"><span class="n">16.</span><span class="t">As discussões são sempre sobre os mesmos temas?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q16" id="q16s" value="SIM" required><label for="q16s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q16" id="q16n" value="NÃO"><label for="q16n"><span class="dot"></span>NÃO</label></span>
@@ -549,7 +594,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">17.</span><span class="t">Após um conflito, existe reparação?</span></div>
+          <div class="qtext"><span class="n">17.</span><span class="t">Após um conflito, existe reparação ou silêncio?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q17" id="q17s" value="SIM" required><label for="q17s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q17" id="q17n" value="NÃO"><label for="q17n"><span class="dot"></span>NÃO</label></span>
@@ -565,7 +610,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">19.</span><span class="t">Os assuntos mais delicados tem sido conversados e amadurecidos com o tempo?</span></div>
+          <div class="qtext"><span class="n">19.</span><span class="t">Os assuntos mais delicados têm sido conversados e amadurecidos com o tempo?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q19" id="q19s" value="SIM" required><label for="q19s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q19" id="q19n" value="NÃO"><label for="q19n"><span class="dot"></span>NÃO</label></span>
@@ -580,12 +625,12 @@
           </div>
         </div>
 
-        <div class="alert"> Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
+        <div class="alert">👉 Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
       </div>
 
       <!-- BLOCO 5 -->
       <div class="section">
-        <h2> Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
+        <h2>Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
         <p class="note">Quando os lugares se confundem, o amor cansa. Quando se organizam, o vínculo respira.</p>
 
         <div class="q">
@@ -628,7 +673,7 @@
           </div>
         </div>
 
-        <div class="alert"> Alerta: Quando os lugares se confundem, o amor cansa.</div>
+        <div class="alert">👉 Alerta: Quando os lugares se confundem, o amor cansa.</div>
       </div>
 
       <!-- FINAL -->
@@ -669,8 +714,8 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445"; // Evandro - 55 + DDD + número
-    const RESPONSAVEL = "SEU_NOME"; // opcional: aparece na mensagem
+    const WHATS_NUMBER = "5549998110445"; // 55 + DDD + número
+    const RESPONSAVEL = "Evandro Favoretto"; // ajuste como preferir
 
     const questions = [
       "1) Vocês sentem que ainda se encontram emocionalmente no dia a dia?",
@@ -748,9 +793,7 @@ Resumo:
 
 Respostas:`;
 
-      const lines = answers.map(item => {
-        return `${item.i}. ${item.a} — ${item.q}`;
-      }).join("\n");
+      const lines = answers.map(item => `${item.i}. ${item.a} — ${item.q}`).join("\n");
 
       const footer =
 `\n\nPedido:
@@ -773,8 +816,7 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
 
       if(allDone){
         const { text } = buildMessage();
-        const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
-        btnWhats.href = url;
+        btnWhats.href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
       } else {
         btnWhats.href = "#";
       }
@@ -799,7 +841,6 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
       }
     });
 
-    // inicial
     updateUI();
   </script>
 </body>
