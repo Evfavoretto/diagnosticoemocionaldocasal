@@ -17,6 +17,7 @@
       --ink:#1f2430;
       --muted:#5b6476;
       --primary:#6c4bbf;
+      --primary2:#8e6fe6;
       --accent:#2f7de1;
       --line:rgba(31,36,48,0.10);
       --shadow:0 18px 45px rgba(20, 12, 45, 0.10);
@@ -25,20 +26,6 @@
     }
 
     *{box-sizing:border-box}
-
-    /* ✅ FORÇAR SUMIR TÍTULO/HEADER DO GITHUB PAGES (tema/Jekyll) */
-    header, .site-header, .page-header, .project-name, .project-tagline,
-    #header, #site-header, #page-header,
-    body > h1:first-child, body > header:first-child,
-    .markdown-body > h1:first-child,
-    .container-lg > h1:first-child{
-      display:none !important;
-      height:0 !important;
-      margin:0 !important;
-      padding:0 !important;
-      border:0 !important;
-    }
-
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -85,7 +72,7 @@
       background: rgba(108,75,191,0.12);
       border: 1px solid rgba(108,75,191,0.18);
       color: #3b2a5f;
-      font-weight: 700;
+      font-weight: 650;
       letter-spacing: .2px;
       font-size: 13px;
     }
@@ -130,7 +117,6 @@
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: var(--shadow2);
-      overflow: visible; /* ✅ garante que nada “corte” no iPhone */
     }
 
     .side h3{
@@ -144,7 +130,7 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Caixa da orientação (agora aparece e fica bonita no mobile) */
+    /* ✅ Box da orientação (corrigido, sem “tarja vazia” no iPhone) */
     .rule{
       margin-top: 14px;
       padding: 14px;
@@ -154,32 +140,42 @@
       color: #244b7a;
       font-size: 14px;
     }
-    .ruleTitle{
+    .stepsRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .stepChip{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(20,12,45,0.06);
+      color:#2a3242;
+      flex: 1 1 240px;
+    }
+    .stepTag{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 8px 14px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.95);
-      border: 1px solid rgba(36,75,122,0.18);
-      font-weight: 850;
-      color:#2d3f66;
-      margin-bottom: 12px;
+      font-weight: 900;
+      font-size: 12px;
+      color:#2d2250;
+      background: rgba(108,75,191,0.10);
+      border: 1px solid rgba(108,75,191,0.18);
+      white-space: nowrap;
     }
-    .steps{
-      display:grid;
-      gap:10px;
-      margin-top: 4px;
-    }
-    .step{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 12px;
-      box-shadow: 0 8px 18px rgba(20,12,45,0.06);
+    .stepText{
+      font-weight: 650;
       color:#2a3242;
+      line-height: 1.25;
     }
-    .step b{ color:#2d2250; }
 
     /* Sections */
     .section{
@@ -206,17 +202,16 @@
       border-top: 1px solid var(--line);
       padding: 14px 0;
       display:flex;
-      gap: 14px;
+      flex-direction: column; /* ✅ opções embaixo */
+      gap: 10px;
       align-items:flex-start;
-      justify-content: space-between;
     }
     .q:first-of-type{border-top: none; padding-top: 0;}
     .q:last-of-type{padding-bottom: 0;}
 
     .qtext{
-      flex: 1;
+      width:100%;
       min-width: 0;
-      padding-right: 12px;
     }
     .qtext .n{
       display:inline-block;
@@ -227,16 +222,15 @@
     .qtext .t{
       font-size: 15.5px;
       color: #1f2430;
-      word-break: normal;
-      hyphens: auto;
     }
 
     .opts{
       display:flex;
       gap:10px;
       flex-wrap: wrap;
-      justify-content:flex-end;
+      justify-content:flex-start; /* ✅ fica alinhado bonito no mobile */
       align-items:center;
+      width:100%;
     }
 
     .opt{
@@ -289,28 +283,6 @@
       border: 1px solid rgba(108,75,191,0.18);
       color:#3b2a5f;
       font-size: 14px;
-    }
-
-    /* ✅ MOBILE: opções SIM/NÃO embaixo da pergunta */
-    @media(max-width: 720px){
-      .q{
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-      .qtext{ padding-right: 0; }
-      .opts{
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        justify-content: start;
-      }
-      .opt label{
-        width: 100%;
-        justify-content: center;
-        padding: 12px 14px;
-      }
     }
 
     /* Final */
@@ -422,7 +394,7 @@
 
     <div class="top">
       <div class="hero">
-        <div class="badge">🧠 Diagnóstico Emocional de Casal</div>
+        <div class="badge"> Diagnóstico Emocional de Casal</div>
         <h1 class="title">“Onde estamos emocionalmente como casal?”</h1>
         <p class="subtitle">
           Este diagnóstico não é para apontar culpados. É para revelar onde o vínculo está desorganizado
@@ -445,11 +417,20 @@
         </p>
 
         <div class="rule">
-          <div class="ruleTitle">Como você recebe o diagnóstico</div>
-          <div class="steps">
-            <div class="step"><b>Passo 1:</b> responda todas as perguntas marcando <b>SIM</b> ou <b>NÃO</b>.</div>
-            <div class="step"><b>Passo 2:</b> no final, clique em <b>“Enviar respostas no WhatsApp”</b>.</div>
-            <div class="step"><b>Passo 3:</b> eu te devolvo a leitura do diagnóstico e o ponto central do vínculo.</div>
+          <strong>Como você recebe o diagnóstico:</strong>
+          <div class="stepsRow">
+            <div class="stepChip">
+              <span class="stepTag">Passo 1</span>
+              <span class="stepText">Responda todas as perguntas (SIM ou NÃO).</span>
+            </div>
+            <div class="stepChip">
+              <span class="stepTag">Passo 2</span>
+              <span class="stepText">No final, clique em “Enviar respostas no WhatsApp”.</span>
+            </div>
+            <div class="stepChip">
+              <span class="stepTag">Passo 3</span>
+              <span class="stepText">Eu devolvo a leitura e o ponto central do vínculo.</span>
+            </div>
           </div>
         </div>
 
@@ -464,8 +445,8 @@
 
       <!-- BLOCO 1 -->
       <div class="section">
-        <h2>Bloco 1 — Conexão e Presença</h2>
-        <p class="note">O vínculo começa a enfraquecer quando o casal funciona, mas deixa de se encontrar.</p>
+        <h2>🔍 Bloco 1 — Conexão e Presença</h2>
+        <p class="note">Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">1.</span><span class="t">Vocês se sentem emocionalmente conectados no dia a dia?</span></div>
@@ -512,8 +493,8 @@
 
       <!-- BLOCO 2 -->
       <div class="section">
-        <h2>Bloco 2 — Comunicação e Escuta</h2>
-        <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
+        <h2>🔍 Bloco 2 — Comunicação e Escuta</h2>
+        <p class="note">Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">6.</span><span class="t">Vocês se sentem ouvidos quando expressam o que sentem?</span></div>
@@ -560,8 +541,8 @@
 
       <!-- BLOCO 3 -->
       <div class="section">
-        <h2>Bloco 3 — Afeto, Intimidade e Escolha</h2>
-        <p class="note">Afeto e admiração são o combustível do vínculo. Sem isso, o casal entra em sobrevivência.</p>
+        <h2>🔍 Bloco 3 — Afeto, Intimidade e Escolha</h2>
+        <p class="note">Sem afeto e admiração, o casal entra em modo de sobrevivência.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">11.</span><span class="t">Existe demonstração espontânea de carinho entre vocês?</span></div>
@@ -608,7 +589,7 @@
 
       <!-- BLOCO 4 -->
       <div class="section">
-        <h2>Bloco 4 — Conflitos e Padrões Repetidos</h2>
+        <h2>🔍 Bloco 4 — Conflitos e Padrões</h2>
         <p class="note">Conflitos não resolvidos se transformam em distância emocional.</p>
 
         <div class="q">
@@ -656,8 +637,8 @@
 
       <!-- BLOCO 5 -->
       <div class="section">
-        <h2>Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
-        <p class="note">Quando os lugares se organizam, o vínculo respira.</p>
+        <h2>🔍 Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
+        <p class="note">Quando os lugares se confundem, o amor cansa. Quando se organizam, o vínculo respira.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">21.</span><span class="t">A responsabilidade pelo relacionamento é compartilhada entre os dois?</span></div>
@@ -740,8 +721,8 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445";
-    const RESPONSAVEL = "Evandro Favoretto";
+    const WHATS_NUMBER = "5549998110445"; // Evandro - 55 + DDD + número
+    const RESPONSAVEL = "Evandro Favoretto"; // aparece na mensagem
 
     const questions = [
       "1) Vocês se sentem emocionalmente conectados no dia a dia?",
@@ -852,12 +833,13 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
 
     btnCopy.addEventListener("click", async () => {
       const { miss } = getAnswers();
+      const { text } = buildMessage();
+
       if(miss !== 0){
         alert("Responda todas as perguntas para copiar o diagnóstico completo.");
         return;
       }
       try{
-        const { text } = buildMessage();
         await navigator.clipboard.writeText(text);
         btnCopy.textContent = "Copiado!";
         setTimeout(()=> btnCopy.textContent = "Copiar respostas", 1200);
