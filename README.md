@@ -1,4 +1,4 @@
-<DOCTYPE html.png>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -30,16 +30,31 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
-      background: radial-gradient(1200px 600px at 10% 0%, var(--bg2) 0%, transparent 55%),
-                  radial-gradient(900px 540px at 90% 10%, var(--bg1) 0%, transparent 55%),
-                  linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, var(--bg2) 0%, transparent 55%),
+        radial-gradient(900px 540px at 90% 10%, var(--bg1) 0%, transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
       line-height:1.55;
     }
 
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 28px 18px 60px;
+      padding: 18px 18px 60px;
+    }
+
+    /* ====== CAPA PARA COBRIR TÍTULO DO GITHUB ====== */
+    .github-cover{
+      width: 100%;
+      margin-top: -110px;     /* cobre o título do GitHub */
+      margin-bottom: -52px;   /* puxa o conteúdo para cima */
+    }
+    .github-cover img{
+      width: 100%;
+      height: auto;
+      display:block;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 18px 45px rgba(20, 12, 45, 0.10);
     }
 
     /* Top */
@@ -47,7 +62,7 @@
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
-      align-items: start; /* ✅ não força mesma altura */
+      align-items: start;
     }
     @media(max-width: 900px){
       .top{grid-template-columns: 1fr}
@@ -111,14 +126,15 @@
       box-shadow: var(--shadow2);
     }
 
-    /* ✅ ORIENTAÇÃO: mais alto e sem corte */
+    /* ====== ORIENTAÇÃO (MAIS ALTA / SEM RECORTE NO IPHONE) ====== */
     .side{
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 22px;                /* ✅ aumentei */
+      padding: 26px;
       box-shadow: var(--shadow2);
-      overflow: visible;            /* ✅ garante que nada "corta" */
+      overflow: visible;
+      margin-top: -18px; /* sobe o card todo */
     }
 
     .side h3{
@@ -132,16 +148,15 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Box da orientação */
     .rule{
-      margin-top: 14px;
-      padding: 16px;                /* ✅ aumentei */
-      border-radius: 16px;
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 18px;
       background: rgba(47,125,225,0.08);
       border: 1px solid rgba(47,125,225,0.18);
       color: #244b7a;
-      font-size: 14px;
-      margin-bottom: 10px;          /* ✅ respiro extra embaixo */
+      font-size: 14.5px;
+      margin-bottom: 10px;
     }
 
     .stepsRow{
@@ -153,16 +168,16 @@
 
     .stepChip{
       display:flex;
-      align-items:flex-start;       /* ✅ melhor quebra no mobile */
+      align-items:flex-start;
       gap:10px;
-      padding: 12px;                /* ✅ mais alto */
+      padding: 12px;
       border-radius: 14px;
       background:#fff;
       border:1px solid var(--line);
       box-shadow: 0 8px 18px rgba(20,12,45,0.06);
       color:#2a3242;
       flex: 1 1 240px;
-      min-height: 48px;             /* ✅ força “altura” mínima */
+      min-height: 52px;
     }
 
     .stepTag{
@@ -185,6 +200,12 @@
       line-height: 1.25;
     }
 
+    .small{
+      margin-top: 10px;
+      font-size: 12.8px;
+      color: #6b7486;
+    }
+
     /* Sections */
     .section{
       margin-top: 18px;
@@ -205,7 +226,7 @@
       font-size: 14.5px;
     }
 
-    /* Questions */
+    /* Questions (SIM/NÃO embaixo) */
     .q{
       border-top: 1px solid var(--line);
       padding: 14px 0;
@@ -217,7 +238,7 @@
     .q:first-of-type{border-top: none; padding-top: 0;}
     .q:last-of-type{padding-bottom: 0;}
 
-    .qtext{width:100%; min-width: 0;}
+    .qtext{width:100%; min-width:0;}
     .qtext .n{
       display:inline-block;
       font-weight: 750;
@@ -239,7 +260,11 @@
     }
 
     .opt{position:relative;}
-    .opt input{position:absolute; opacity:0; pointer-events:none;}
+    .opt input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
     .opt label{
       display:inline-flex;
       align-items:center;
@@ -257,7 +282,6 @@
       box-shadow: 0 6px 18px rgba(20,12,45,0.06);
       white-space:nowrap;
     }
-
     .opt input:checked + label{
       border-color: rgba(108,75,191,0.55);
       background: rgba(108,75,191,0.10);
@@ -294,8 +318,17 @@
       box-shadow: var(--shadow);
     }
 
-    .final h2{margin: 0 0 10px; font-size: 22px; color:#2d2250;}
-    .final p{margin: 0 0 14px; color: var(--muted); font-size: 15px; max-width: 75ch;}
+    .final h2{
+      margin: 0 0 10px;
+      font-size: 22px;
+      color:#2d2250;
+    }
+    .final p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 75ch;
+    }
 
     .summary{
       background:#fff;
@@ -359,18 +392,37 @@
       border:1px solid var(--line);
     }
 
-    .small{margin-top: 10px; font-size: 12.8px; color: #6b7486;}
-    .footer{margin-top: 30px; text-align:center; color:#7b8496; font-size: 13px;}
+    .footer{
+      margin-top: 30px;
+      text-align:center;
+      color:#7b8496;
+      font-size: 13px;
+    }
+
     .req{color:#a63d3d; font-weight: 700;}
+
+    /* Mobile refinado */
+    @media (max-width: 520px){
+      .wrap{padding-top: 10px;}
+      .github-cover{margin-top:-130px; margin-bottom:-58px;}
+      .side{margin-top:-22px;}
+      .rule{padding-top:22px; padding-bottom:22px;}
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- IMAGEM PARA COBRIR O TÍTULO DO GITHUB -->
+  <div class="github-cover">
+    <img src="imagens/DOCTYPE html.png" alt="Diagnóstico Emocional de Casal">
+  </div>
+
   <div class="wrap">
 
     <div class="top">
       <div class="hero">
-        <div class="badge"> Diagnóstico Emocional de Casal</div>
+        <div class="badge">Diagnóstico Emocional de Casal</div>
         <h1 class="title">“Onde estamos emocionalmente como casal?”</h1>
         <p class="subtitle">
           Este diagnóstico não é para apontar culpados. É para revelar onde o vínculo está desorganizado
@@ -393,7 +445,8 @@
         </p>
 
         <div class="rule">
-          <strong>Como você recebe o diagnóstico:</strong>
+          <strong>Como você recebe o seu diagnóstico:</strong>
+
           <div class="stepsRow">
             <div class="stepChip">
               <span class="stepTag">Passo 1</span>
@@ -416,7 +469,6 @@
       </div>
     </div>
 
-    <!-- DAQUI PRA BAIXO: mantém exatamente igual ao seu arquivo anterior -->
     <!-- FORM -->
     <form id="quiz">
 
@@ -468,8 +520,199 @@
         <div class="alert">👉 Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
-      <!-- (restante do seu formulário segue igual ao que eu já te enviei antes) -->
+      <!-- BLOCO 2 -->
+      <div class="section">
+        <h2>🔍 Bloco 2 — Comunicação e Escuta</h2>
+        <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
 
+        <div class="q">
+          <div class="qtext"><span class="n">6.</span><span class="t">Vocês se sentem ouvidos quando expressam o que sentem?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q6" id="q6s" value="SIM" required><label for="q6s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q6" id="q6n" value="NÃO"><label for="q6n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">7.</span><span class="t">As conversas costumam terminar em entendimento mútuo?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q7" id="q7s" value="SIM" required><label for="q7s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q7" id="q7n" value="NÃO"><label for="q7n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">8.</span><span class="t">Vocês conseguem falar sobre temas difíceis sem medo constante de conflito?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q8" id="q8s" value="SIM" required><label for="q8s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q8" id="q8n" value="NÃO"><label for="q8n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">9.</span><span class="t">Conseguem escutar um ao outro com presença, sem preparar defesa?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q9" id="q9s" value="SIM" required><label for="q9s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q9" id="q9n" value="NÃO"><label for="q9n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">10.</span><span class="t">Existe curiosidade para compreender o outro durante as conversas?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q10" id="q10s" value="SIM" required><label for="q10s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q10" id="q10n" value="NÃO"><label for="q10n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="alert">👉 Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
+      </div>
+
+      <!-- BLOCO 3 -->
+      <div class="section">
+        <h2>🔍 Bloco 3 — Afeto, Intimidade e Escolha</h2>
+        <p class="note">Sem afeto e admiração, o casal entra em modo de sobrevivência.</p>
+
+        <div class="q">
+          <div class="qtext"><span class="n">11.</span><span class="t">Existe demonstração espontânea de carinho entre vocês?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q11" id="q11s" value="SIM" required><label for="q11s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q11" id="q11n" value="NÃO"><label for="q11n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">12.</span><span class="t">A intimidade faz parte da relação de forma natural?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q12" id="q12s" value="SIM" required><label for="q12s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q12" id="q12n" value="NÃO"><label for="q12n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">13.</span><span class="t">Vocês ainda se sentem escolhidos um pelo outro?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q13" id="q13s" value="SIM" required><label for="q13s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q13" id="q13n" value="NÃO"><label for="q13n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">14.</span><span class="t">Há espaço para vulnerabilidade emocional no casal?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q14" id="q14s" value="SIM" required><label for="q14s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q14" id="q14n" value="NÃO"><label for="q14n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">15.</span><span class="t">Existe admiração mútua na relação?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q15" id="q15s" value="SIM" required><label for="q15s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q15" id="q15n" value="NÃO"><label for="q15n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="alert">👉 Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
+      </div>
+
+      <!-- BLOCO 4 -->
+      <div class="section">
+        <h2>🔍 Bloco 4 — Conflitos e Padrões</h2>
+        <p class="note">Conflitos não resolvidos se transformam em distância emocional.</p>
+
+        <div class="q">
+          <div class="qtext"><span class="n">16.</span><span class="t">Os conflitos costumam ser resolvidos sem se repetirem constantemente?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q16" id="q16s" value="SIM" required><label for="q16s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q16" id="q16n" value="NÃO"><label for="q16n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">17.</span><span class="t">Após um conflito, vocês conseguem reparar e se reaproximar?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q17" id="q17s" value="SIM" required><label for="q17s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q17" id="q17n" value="NÃO"><label for="q17n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">18.</span><span class="t">As decisões no relacionamento são tomadas de forma equilibrada?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q18" id="q18s" value="SIM" required><label for="q18s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q18" id="q18n" value="NÃO"><label for="q18n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">19.</span><span class="t">Os sentimentos difíceis são elaborados ao longo do tempo, sem acumular?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q19" id="q19s" value="SIM" required><label for="q19s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q19" id="q19n" value="NÃO"><label for="q19n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">20.</span><span class="t">Vocês conseguem construir uma história própria, sem repetir padrões familiares?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q20" id="q20s" value="SIM" required><label for="q20s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q20" id="q20n" value="NÃO"><label for="q20n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="alert">👉 Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
+      </div>
+
+      <!-- BLOCO 5 -->
+      <div class="section">
+        <h2>🔍 Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
+        <p class="note">Quando os lugares se confundem, o amor cansa. Quando se organizam, o vínculo respira.</p>
+
+        <div class="q">
+          <div class="qtext"><span class="n">21.</span><span class="t">A responsabilidade pelo relacionamento é compartilhada entre os dois?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q21" id="q21s" value="SIM" required><label for="q21s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q21" id="q21n" value="NÃO"><label for="q21n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">22.</span><span class="t">Existe equilíbrio entre dar e receber na relação?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q22" id="q22s" value="SIM" required><label for="q22s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q22" id="q22n" value="NÃO"><label for="q22n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">23.</span><span class="t">Os papéis de cada um no casal são claros?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q23" id="q23s" value="SIM" required><label for="q23s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q23" id="q23n" value="NÃO"><label for="q23n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">24.</span><span class="t">Vocês se apoiam mutuamente nas dificuldades?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q24" id="q24s" value="SIM" required><label for="q24s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q24" id="q24n" value="NÃO"><label for="q24n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="qtext"><span class="n">25.</span><span class="t">O relacionamento é tratado como prioridade na vida de vocês?</span></div>
+          <div class="opts">
+            <span class="opt"><input type="radio" name="q25" id="q25s" value="SIM" required><label for="q25s"><span class="dot"></span>SIM</label></span>
+            <span class="opt"><input type="radio" name="q25" id="q25n" value="NÃO"><label for="q25n"><span class="dot"></span>NÃO</label></span>
+          </div>
+        </div>
+
+        <div class="alert">👉 Alerta: Quando os lugares se confundem, o amor cansa.</div>
+      </div>
+
+      <!-- FINAL -->
       <div class="final">
         <h2>✅ Finalizar e enviar para receber o diagnóstico</h2>
         <p>
@@ -507,7 +750,7 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445";
+    const WHATS_NUMBER = "5549998110445"; // 55 + DDD + número
     const RESPONSAVEL = "Evandro Favoretto";
 
     const questions = [
@@ -516,21 +759,25 @@
       "3) Vocês conseguem ficar em silêncio juntos sem sentir afastamento?",
       "4) Conseguem estar juntos sem distrações externas (celular, trabalho, filhos)?",
       "5) Existe sensação de parceria no relacionamento?",
+
       "6) Vocês se sentem ouvidos quando expressam o que sentem?",
       "7) As conversas costumam terminar em entendimento mútuo?",
       "8) Vocês conseguem falar sobre temas difíceis sem medo constante de conflito?",
       "9) Conseguem escutar um ao outro com presença, sem preparar defesa?",
       "10) Existe curiosidade para compreender o outro durante as conversas?",
+
       "11) Existe demonstração espontânea de carinho entre vocês?",
       "12) A intimidade faz parte da relação de forma natural?",
       "13) Vocês ainda se sentem escolhidos um pelo outro?",
       "14) Há espaço para vulnerabilidade emocional no casal?",
       "15) Existe admiração mútua na relação?",
+
       "16) Os conflitos costumam ser resolvidos sem se repetirem constantemente?",
       "17) Após um conflito, vocês conseguem reparar e se reaproximar?",
       "18) As decisões no relacionamento são tomadas de forma equilibrada?",
       "19) Os sentimentos difíceis são elaborados ao longo do tempo, sem acumular?",
       "20) Vocês conseguem construir uma história própria, sem repetir padrões familiares?",
+
       "21) A responsabilidade pelo relacionamento é compartilhada entre os dois?",
       "22) Existe equilíbrio entre dar e receber na relação?",
       "23) Os papéis de cada um no casal são claros?",
