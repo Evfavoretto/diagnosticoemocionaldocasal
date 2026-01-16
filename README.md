@@ -17,7 +17,6 @@
       --ink:#1f2430;
       --muted:#5b6476;
       --primary:#6c4bbf;
-      --primary2:#8e6fe6;
       --accent:#2f7de1;
       --line:rgba(31,36,48,0.10);
       --shadow:0 18px 45px rgba(20, 12, 45, 0.10);
@@ -131,6 +130,7 @@
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: var(--shadow2);
+      overflow: visible; /* ✅ garante que nada “corte” no iPhone */
     }
 
     .side h3{
@@ -144,34 +144,34 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Centralizado + melhor estética no bloco "Como você recebe o diagnóstico" */
+    /* ✅ Caixa da orientação (agora aparece e fica bonita no mobile) */
     .rule{
       margin-top: 14px;
-      padding: 16px;
+      padding: 14px;
       border-radius: 16px;
       background: rgba(47,125,225,0.08);
       border: 1px solid rgba(47,125,225,0.18);
       color: #244b7a;
       font-size: 14px;
-      text-align:center;
     }
-    .rule .ruleTitle{
-      display:inline-block;
+    .ruleTitle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.95);
       border: 1px solid rgba(36,75,122,0.18);
       font-weight: 850;
       color:#2d3f66;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .rule .steps{
+    .steps{
       display:grid;
       gap:10px;
-      margin-top: 6px;
-      text-align:left;
+      margin-top: 4px;
     }
-    .rule .step{
+    .step{
       background:#fff;
       border:1px solid var(--line);
       border-radius: 14px;
@@ -179,7 +179,7 @@
       box-shadow: 0 8px 18px rgba(20,12,45,0.06);
       color:#2a3242;
     }
-    .rule .step b{ color:#2d2250; }
+    .step b{ color:#2d2250; }
 
     /* Sections */
     .section{
@@ -227,6 +227,8 @@
     .qtext .t{
       font-size: 15.5px;
       color: #1f2430;
+      word-break: normal;
+      hyphens: auto;
     }
 
     .opts{
@@ -287,6 +289,28 @@
       border: 1px solid rgba(108,75,191,0.18);
       color:#3b2a5f;
       font-size: 14px;
+    }
+
+    /* ✅ MOBILE: opções SIM/NÃO embaixo da pergunta */
+    @media(max-width: 720px){
+      .q{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .qtext{ padding-right: 0; }
+      .opts{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-content: start;
+      }
+      .opt label{
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+      }
     }
 
     /* Final */
@@ -427,10 +451,11 @@
             <div class="step"><b>Passo 2:</b> no final, clique em <b>“Enviar respostas no WhatsApp”</b>.</div>
             <div class="step"><b>Passo 3:</b> eu te devolvo a leitura do diagnóstico e o ponto central do vínculo.</div>
           </div>
-          <p class="small" style="margin:10px 0 0; text-align:center;">
-            *Se preferir, apenas uma pessoa pode responder pelo casal.
-          </p>
         </div>
+
+        <p class="small">
+          *Se preferir, apenas uma pessoa pode responder pelo casal.
+        </p>
       </div>
     </div>
 
@@ -715,10 +740,9 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445"; // 55 + DDD + número
-    const RESPONSAVEL = "Evandro Favoretto"; // ajuste como preferir
+    const WHATS_NUMBER = "5549998110445";
+    const RESPONSAVEL = "Evandro Favoretto";
 
-    // ✅ Perguntas atualizadas (para enviar no WhatsApp exatamente iguais às do formulário)
     const questions = [
       "1) Vocês se sentem emocionalmente conectados no dia a dia?",
       "2) As conversas entre vocês vão além da rotina e das tarefas?",
