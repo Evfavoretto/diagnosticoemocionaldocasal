@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -7,7 +6,7 @@
   <meta name="theme-color" content="#ffffff" />
 
   <title>Diagnóstico Emocional de Casal | Onde estamos emocionalmente?</title>
-  <meta name="description" content="Responda SIM ou NÃO e descubra onde o vínculo está desorganizado e o que precisa de cuidado agora. Envie suas respostas no WhatsApp para receber o diagnóstico." />
+  <meta name="description" content="Responda SIM ou NÃO e descubra onde o vínculo precisa de cuidado. Envie suas respostas no WhatsApp para receber o diagnóstico." />
 
   <style>
     :root{
@@ -35,29 +34,36 @@
       line-height:1.55;
     }
 
+    /* ====== Top cover (imagem que você criou) ====== */
+    .topCover{
+      position:relative;
+      width:100%;
+      height: 220px;
+      overflow:hidden;
+      background: linear-gradient(135deg, rgba(108,75,191,0.10), rgba(47,125,225,0.10));
+      border-bottom: 1px solid rgba(31,36,48,0.06);
+    }
+    .topCover img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 1;
+    }
+    .topCover::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.0) 100%);
+      pointer-events:none;
+    }
+
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 18px 18px 60px;
-      position: relative;
-    }
-
-    /* ✅ CAPA PARA COBRIR TÍTULO DO GITHUB */
-    .github-cover{
-      width: 100%;
-      margin-top: -120px;   /* cobre o título do GitHub */
-      margin-bottom: -50px; /* puxa o conteúdo para cima */
-      position: relative;
-      z-index: 2;
-    }
-    .github-cover img{
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      border-radius: 0 0 28px 28px;
-      box-shadow: var(--shadow2);
-      background: linear-gradient(135deg, rgba(108,75,191,0.10), rgba(47,125,225,0.10));
+      padding: 10px 18px 60px; /* ✅ subimos o topo */
     }
 
     /* Top */
@@ -65,22 +71,25 @@
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
-      align-items: stretch;
-      position: relative;
-      z-index: 3;
+      align-items: start;
+      margin-top: -110px; /* ✅ “sobe” o bloco pra ficar mais alto e premium */
     }
     @media(max-width: 900px){
-      .top{grid-template-columns: 1fr}
+      .top{
+        grid-template-columns: 1fr;
+        margin-top: -120px; /* ✅ sobe mais no mobile */
+      }
     }
 
     .hero{
       background: linear-gradient(135deg, rgba(108,75,191,0.10), rgba(47,125,225,0.10));
       border: 1px solid rgba(108,75,191,0.18);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 26px 22px;
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+      backdrop-filter: blur(6px);
     }
 
     .badge{
@@ -99,7 +108,7 @@
 
     .title{
       margin: 14px 0 8px;
-      font-size: 36px;
+      font-size: 34px;
       line-height:1.12;
       letter-spacing:-.4px;
     }
@@ -115,7 +124,7 @@
     }
 
     .mini{
-      margin-top: 18px;
+      margin-top: 16px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
@@ -129,19 +138,17 @@
       font-size: 13.5px;
       color: #3d4658;
       box-shadow: var(--shadow2);
-      display:inline-flex;
-      gap:8px;
+      display:flex;
       align-items:center;
+      gap:8px;
     }
 
     .side{
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 18px;
       box-shadow: var(--shadow2);
-      overflow: visible;
-      margin-top: -18px; /* 🔼 sobe o card */
     }
 
     .side h3{
@@ -155,41 +162,37 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Título central (sem cortar no iPhone) */
-    .howTitle{
-      margin-top: 14px;
-      width: 100%;
-      text-align:center;
-      padding: 14px 14px;
-      border-radius: 999px;
-      background: rgba(47,125,225,0.10);
-      border: 1px solid rgba(47,125,225,0.22);
+    /* ✅ Box “Como você recebe…” (sem tarja bugada) */
+    .rule{
+      margin-top: 8px; /* ✅ mais pra cima */
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(47,125,225,0.08);
+      border: 1px solid rgba(47,125,225,0.18);
       color: #244b7a;
-      font-weight: 900;
-      font-size: 16px;
-      line-height: 1.2;
-      box-shadow: 0 10px 22px rgba(20,12,45,0.06);
-      word-break: break-word;
+      font-size: 14px;
     }
 
     .stepsRow{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
+
     .stepChip{
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       gap:10px;
-      padding: 12px 12px;
-      border-radius: 16px;
+      padding: 10px 12px;
+      border-radius: 14px;
       background:#fff;
       border:1px solid var(--line);
       box-shadow: 0 8px 18px rgba(20,12,45,0.06);
       color:#2a3242;
       flex: 1 1 240px;
     }
+
     .stepTag{
       display:inline-flex;
       align-items:center;
@@ -202,23 +205,18 @@
       background: rgba(108,75,191,0.10);
       border: 1px solid rgba(108,75,191,0.18);
       white-space: nowrap;
-      margin-top: 2px;
     }
+
     .stepText{
-      font-weight: 650;
+      font-weight: 700;
       color:#2a3242;
       line-height: 1.25;
-      font-size: 13.5px;
     }
 
     .small{
       margin-top: 10px;
       font-size: 12.8px;
       color: #6b7486;
-    }
-    .req{
-      color:#a63d3d;
-      font-weight: 800;
     }
 
     /* Sections */
@@ -241,37 +239,39 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Questions (SIM/NÃO embaixo) */
+    /* ✅ Perguntas com opções EMBAIXO */
     .q{
       border-top: 1px solid var(--line);
       padding: 14px 0;
       display:flex;
-      flex-direction: column;     /* ✅ coloca opções embaixo */
+      flex-direction: column; /* ✅ aqui */
       gap: 10px;
+      align-items:flex-start;
     }
     .q:first-of-type{border-top: none; padding-top: 0;}
     .q:last-of-type{padding-bottom: 0;}
 
     .qtext{
-      display:block;
+      width:100%;
       min-width: 0;
     }
     .qtext .n{
       display:inline-block;
-      font-weight: 900;
+      font-weight: 850;
       color: rgba(108,75,191,0.95);
       margin-right: 8px;
     }
     .qtext .t{
       font-size: 15.5px;
       color: #1f2430;
+      font-weight: 650;
     }
 
     .opts{
       display:flex;
       gap:10px;
       flex-wrap: wrap;
-      justify-content:flex-start; /* ✅ embaixo e alinhado */
+      justify-content:flex-start;
       align-items:center;
     }
 
@@ -287,7 +287,7 @@
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      padding: 11px 16px;
+      padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: #fff;
@@ -300,7 +300,6 @@
       box-shadow: 0 6px 18px rgba(20,12,45,0.06);
       white-space:nowrap;
     }
-
     .opt input:checked + label{
       border-color: rgba(108,75,191,0.55);
       background: rgba(108,75,191,0.10);
@@ -325,6 +324,7 @@
       border: 1px solid rgba(108,75,191,0.18);
       color:#3b2a5f;
       font-size: 14px;
+      font-weight: 650;
     }
 
     /* Final */
@@ -372,7 +372,7 @@
       flex-wrap:wrap;
       align-items:center;
       color:#2d2250;
-      font-weight: 900;
+      font-weight: 800;
     }
     .chip{
       padding: 8px 12px;
@@ -381,7 +381,7 @@
       background: rgba(47,125,225,0.06);
       color:#244b7a;
       font-size: 13.5px;
-      font-weight: 900;
+      font-weight: 850;
     }
 
     .btn{
@@ -412,33 +412,24 @@
     }
 
     .footer{
-      margin-top: 26px;
+      margin-top: 30px;
       text-align:center;
       color:#7b8496;
       font-size: 13px;
     }
 
-    /* Mobile ajustes finos */
-    @media (max-width: 520px){
-      .wrap{ padding-top: 10px; }
-      .github-cover{ margin-top: -140px; margin-bottom: -60px; }
-      .github-cover img{ height: 170px; }
-      .side{ margin-top: -22px; padding: 22px; }
-      .howTitle{ font-size: 15px; padding: 14px 12px; }
-      .opt label{ width: 120px; justify-content:center; }
+    .req{
+      color:#a63d3d;
+      font-weight: 900;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ✅ IMAGEM DE CAPA (cobre o título do GitHub) -->
-  <div class="github-cover" id="cover">
-    <img
-      src="imagens/DOCTYPE%20html.png"
-      alt="Capa Diagnóstico Emocional de Casal"
-      onerror="document.getElementById('cover').style.display='none';"
-    />
+  <!-- ✅ imagem topo: assets/DOCTYPE html.png -->
+  <div class="topCover">
+    <img src="assets/DOCTYPE%20html.png" alt="Capa" />
   </div>
 
   <div class="wrap">
@@ -467,22 +458,21 @@
           mas com o que realmente é hoje.
         </p>
 
-        <div class="howTitle">Como você recebe o seu diagnóstico</div>
-
-        <div class="stepsRow">
-          <div class="stepChip">
-            <span class="stepTag">Passo 1</span>
-            <span class="stepText">Responda todas as perguntas (SIM ou NÃO).</span>
-          </div>
-
-          <div class="stepChip">
-            <span class="stepTag">Passo 2</span>
-            <span class="stepText">No final, clique em “Enviar respostas no WhatsApp”.</span>
-          </div>
-
-          <div class="stepChip">
-            <span class="stepTag">Passo 3</span>
-            <span class="stepText">Eu te devolvo a leitura e o ponto central do vínculo.</span>
+        <div class="rule">
+          <strong>Como você recebe o seu diagnóstico:</strong>
+          <div class="stepsRow">
+            <div class="stepChip">
+              <span class="stepTag">Passo 1</span>
+              <span class="stepText">Responda todas as perguntas (SIM ou NÃO).</span>
+            </div>
+            <div class="stepChip">
+              <span class="stepTag">Passo 2</span>
+              <span class="stepText">No final, clique em “Enviar respostas no WhatsApp”.</span>
+            </div>
+            <div class="stepChip">
+              <span class="stepTag">Passo 3</span>
+              <span class="stepText">Eu devolvo a leitura e o ponto central do vínculo.</span>
+            </div>
           </div>
         </div>
 
@@ -540,7 +530,7 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
+        <div class="alert">Alerta: quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
       <!-- BLOCO 2 -->
@@ -588,7 +578,7 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
+        <div class="alert">Alerta: quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
       </div>
 
       <!-- BLOCO 3 -->
@@ -636,13 +626,13 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
+        <div class="alert">Alerta: sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
       </div>
 
       <!-- BLOCO 4 -->
       <div class="section">
         <h2>Bloco 4 — Conflitos e Padrões</h2>
-        <p class="note">Conflitos não elaborados viram distância emocional ao longo do tempo.</p>
+        <p class="note">Conflitos não resolvidos se transformam em distância emocional.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">16.</span><span class="t">Os conflitos costumam ser resolvidos sem se repetirem constantemente?</span></div>
@@ -684,7 +674,7 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: conflitos não elaborados se transformam em distância emocional.</div>
+        <div class="alert">Alerta: conflitos não resolvidos se transformam em distância emocional.</div>
       </div>
 
       <!-- BLOCO 5 -->
@@ -732,7 +722,7 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: quando os lugares se confundem, o amor cansa.</div>
+        <div class="alert">Alerta: quando os lugares se confundem, o amor cansa.</div>
       </div>
 
       <!-- FINAL -->
@@ -740,7 +730,7 @@
         <h2>✅ Finalizar e enviar para receber o diagnóstico</h2>
         <p>
           Ao clicar no botão abaixo, suas respostas serão organizadas automaticamente e enviadas no WhatsApp.
-          Com base nisso, eu te devolvo a leitura do diagnóstico (vermelho / amarelo / verde) e o ponto central que aparece no vínculo.
+          Com base nisso, eu te devolvo a leitura do diagnóstico e o ponto central que aparece no vínculo.
         </p>
 
         <div class="summary">
@@ -764,7 +754,7 @@
         </div>
 
         <div class="footer">
-          © <span id="year"></span> • Diagnóstico Emocional de Casal • Desenvolvido para uma experiência simples, direta e acolhedora.
+          © <span id="year"></span> • Diagnóstico Emocional de Casal • Experiência simples, direta e acolhedora.
         </div>
       </div>
 
@@ -773,8 +763,8 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445"; // 55 + DDD + número
-    const RESPONSAVEL = ""; // opcional (pode deixar vazio)
+    const WHATS_NUMBER = "5549998110445"; // Evandro - 55 + DDD + número
+    const RESPONSAVEL = ""; // opcional (deixe vazio se não quiser)
 
     const questions = [
       "1) Vocês se sentem emocionalmente conectados no dia a dia?",
@@ -840,21 +830,22 @@
     function buildMessage(){
       const { answers, yes, no, miss } = getAnswers();
 
-      const respLine = RESPONSAVEL && RESPONSAVEL.trim()
-        ? `Responsável: ${RESPONSAVEL}\n\n`
-        : "";
+      const responsavelLine = (RESPONSAVEL && RESPONSAVEL.trim().length)
+        ? `\nResponsável: ${RESPONSAVEL}\n`
+        : `\n`;
 
       const header =
 `DIAGNÓSTICO EMOCIONAL DE CASAL
-(Onde estamos emocionalmente como casal?)
-
-${respLine}Resumo:
+(Onde estamos emocionalmente como casal?)${responsavelLine}
+Resumo:
 • SIM: ${yes}
 • NÃO: ${no}
 
 Respostas:`;
 
-      const lines = answers.map(item => `${item.i}. ${item.a} — ${item.q}`).join("\n");
+      const lines = answers.map(item => {
+        return `${item.i}. ${item.a} — ${item.q}`;
+      }).join("\n");
 
       const footer =
 `\n\nPedido:
@@ -877,7 +868,8 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
 
       if(allDone){
         const { text } = buildMessage();
-        btnWhats.href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
+        const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
+        btnWhats.href = url;
       } else {
         btnWhats.href = "#";
       }
