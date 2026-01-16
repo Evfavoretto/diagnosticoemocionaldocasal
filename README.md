@@ -356,7 +356,7 @@
 
     <div class="top">
       <div class="hero">
-        <div class="badge">🧠 Diagnóstico Emocional de Casal</div>
+        <div class="badge"> Diagnóstico Emocional de Casal</div>
         <h1 class="title">“Onde estamos emocionalmente como casal?”</h1>
         <p class="subtitle">
           Este diagnóstico não é para apontar culpados. É para revelar onde o vínculo está desorganizado
@@ -364,9 +364,9 @@
         </p>
 
         <div class="mini">
-          <div class="pill">✅ Respostas rápidas: SIM / NÃO</div>
-          <div class="pill">🧭 Clareza sobre o vínculo</div>
-          <div class="pill">🤝 Sem culpa, com cuidado</div>
+          <div class="pill"> Respostas rápidas: SIM / NÃO</div>
+          <div class="pill"> Clareza sobre o vínculo</div>
+          <div class="pill"> Sem culpa, com cuidado</div>
         </div>
       </div>
 
@@ -393,7 +393,7 @@
 
       <!-- BLOCO 1 -->
       <div class="section">
-        <h2>🔍 Bloco 1 — Conexão e Presença</h2>
+        <h2> Bloco 1 — Conexão e Presença</h2>
         <p class="note">O vínculo começa a enfraquecer quando o casal funciona, mas deixa de se encontrar.</p>
 
         <div class="q">
@@ -405,7 +405,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">2.</span><span class="t">As conversas são mais profundas ou apenas funcionais (rotina, tarefas)?</span></div>
+          <div class="qtext"><span class="n">2.</span><span class="t">As conversas são mais profundas? (rotina, tarefas)?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q2" id="q2s" value="SIM" required><label for="q2s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q2" id="q2n" value="NÃO"><label for="q2n"><span class="dot"></span>NÃO</label></span>
@@ -429,19 +429,19 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">5.</span><span class="t">Há sensação de parceria ou de convivência automática?</span></div>
+          <div class="qtext"><span class="n">5.</span><span class="t">Existe sensação de parceria?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q5" id="q5s" value="SIM" required><label for="q5s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q5" id="q5n" value="NÃO"><label for="q5n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
+        <div class="alert"> Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
       <!-- BLOCO 2 -->
       <div class="section">
-        <h2>🔍 Bloco 2 — Comunicação e Escuta</h2>
+        <h2> Bloco 2 — Comunicação e Escuta</h2>
         <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
 
         <div class="q">
@@ -453,7 +453,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">7.</span><span class="t">As conversas terminam em entendimento ou em defesa?</span></div>
+          <div class="qtext"><span class="n">7.</span><span class="t">As conversas terminam em entendimento?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q7" id="q7s" value="SIM" required><label for="q7s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q7" id="q7n" value="NÃO"><label for="q7n"><span class="dot"></span>NÃO</label></span>
@@ -461,7 +461,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">8.</span><span class="t">Há medo de falar certos assuntos para evitar conflito?</span></div>
+          <div class="qtext"><span class="n">8.</span><span class="t">Vocês tem abertura para conversar de todos os assuntos?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q8" id="q8s" value="SIM" required><label for="q8s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q8" id="q8n" value="NÃO"><label for="q8n"><span class="dot"></span>NÃO</label></span>
@@ -477,19 +477,19 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">10.</span><span class="t">Existe mais acusação ou mais curiosidade?</span></div>
+          <div class="qtext"><span class="n">10.</span><span class="t">Existe curiosidade sobre a conversa?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q10" id="q10s" value="SIM" required><label for="q10s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q10" id="q10n" value="NÃO"><label for="q10n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
+        <div class="alert"> Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
       </div>
 
       <!-- BLOCO 3 -->
       <div class="section">
-        <h2>🔍 Bloco 3 — Afeto, Intimidade e Escolha</h2>
+        <h2> Bloco 3 — Afeto, Intimidade e Escolha</h2>
         <p class="note">Afeto e admiração são o combustível do vínculo. Sem isso, o casal entra em sobrevivência.</p>
 
         <div class="q">
@@ -501,7 +501,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">12.</span><span class="t">A intimidade é viva ou evitada?</span></div>
+          <div class="qtext"><span class="n">12.</span><span class="t">A intimidade é viva?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q12" id="q12s" value="SIM" required><label for="q12s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q12" id="q12n" value="NÃO"><label for="q12n"><span class="dot"></span>NÃO</label></span>
@@ -532,16 +532,16 @@
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
+        <div class="alert"> Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
       </div>
 
       <!-- BLOCO 4 -->
       <div class="section">
-        <h2>🔍 Bloco 4 — Conflitos e Padrões Repetidos</h2>
+        <h2> Bloco 4 — Conflitos e Padrões Repetidos</h2>
         <p class="note">Conflitos não resolvidos viram distância. Distância vira silêncio. E o silêncio vira solidão a dois.</p>
 
         <div class="q">
-          <div class="qtext"><span class="n">16.</span><span class="t">As discussões são sempre sobre os mesmos temas?</span></div>
+          <div class="qtext"><span class="n">16.</span><span class="t">Vocês conseguem resolver os conflitos e avançar, sem ficarem presos sempre aos mesmos temas?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q16" id="q16s" value="SIM" required><label for="q16s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q16" id="q16n" value="NÃO"><label for="q16n"><span class="dot"></span>NÃO</label></span>
@@ -549,7 +549,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">17.</span><span class="t">Após um conflito, existe reparação ou silêncio?</span></div>
+          <div class="qtext"><span class="n">17.</span><span class="t">Após um conflito, existe reparação?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q17" id="q17s" value="SIM" required><label for="q17s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q17" id="q17n" value="NÃO"><label for="q17n"><span class="dot"></span>NÃO</label></span>
@@ -565,7 +565,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">19.</span><span class="t">Há ressentimentos acumulados?</span></div>
+          <div class="qtext"><span class="n">19.</span><span class="t">Os assuntos mais delicados tem sido conversados e amadurecidos com o tempo?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q19" id="q19s" value="SIM" required><label for="q19s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q19" id="q19n" value="NÃO"><label for="q19n"><span class="dot"></span>NÃO</label></span>
@@ -573,19 +573,19 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">20.</span><span class="t">Vocês repetem histórias parecidas com as dos pais?</span></div>
+          <div class="qtext"><span class="n">20.</span><span class="t">Vocês conseguem construir a própria história como casal, sem repetir automaticamente os padrões vividos pelos pais?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q20" id="q20s" value="SIM" required><label for="q20s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q20" id="q20n" value="NÃO"><label for="q20n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
+        <div class="alert"> Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
       </div>
 
       <!-- BLOCO 5 -->
       <div class="section">
-        <h2>🔍 Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
+        <h2> Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
         <p class="note">Quando os lugares se confundem, o amor cansa. Quando se organizam, o vínculo respira.</p>
 
         <div class="q">
@@ -597,7 +597,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">22.</span><span class="t">Um dos dois sente que carrega a relação?</span></div>
+          <div class="qtext"><span class="n">22.</span><span class="t">A responsabilidade pela relação é compartilhada entre os dois, de forma equilibrada?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q22" id="q22s" value="SIM" required><label for="q22s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q22" id="q22n" value="NÃO"><label for="q22n"><span class="dot"></span>NÃO</label></span>
@@ -605,7 +605,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">23.</span><span class="t">Há clareza de papéis ou confusão?</span></div>
+          <div class="qtext"><span class="n">23.</span><span class="t">Há clareza de papéis?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q23" id="q23s" value="SIM" required><label for="q23s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q23" id="q23n" value="NÃO"><label for="q23n"><span class="dot"></span>NÃO</label></span>
@@ -613,7 +613,7 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">24.</span><span class="t">Vocês se apoiam ou competem?</span></div>
+          <div class="qtext"><span class="n">24.</span><span class="t">Vocês se apoiam?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q24" id="q24s" value="SIM" required><label for="q24s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q24" id="q24n" value="NÃO"><label for="q24n"><span class="dot"></span>NÃO</label></span>
@@ -621,14 +621,14 @@
         </div>
 
         <div class="q">
-          <div class="qtext"><span class="n">25.</span><span class="t">O casal é prioridade ou sempre fica por último?</span></div>
+          <div class="qtext"><span class="n">25.</span><span class="t">O casal é prioridade?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q25" id="q25s" value="SIM" required><label for="q25s"><span class="dot"></span>SIM</label></span>
             <span class="opt"><input type="radio" name="q25" id="q25n" value="NÃO"><label for="q25n"><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
-        <div class="alert">👉 Alerta: Quando os lugares se confundem, o amor cansa.</div>
+        <div class="alert"> Alerta: Quando os lugares se confundem, o amor cansa.</div>
       </div>
 
       <!-- FINAL -->
