@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -26,12 +26,9 @@
 
     *{box-sizing:border-box}
 
-    /* ✅ FORÇAR SUMIR TÍTULO/HEADER DO GITHUB PAGES (tema/Jekyll) */
+    /* ✅ (Só funciona em temas/Jekyll no Pages; não afeta seu site normal) */
     header, .site-header, .page-header, .project-name, .project-tagline,
-    #header, #site-header, #page-header,
-    body > h1:first-child, body > header:first-child,
-    .markdown-body > h1:first-child,
-    .container-lg > h1:first-child{
+    #header, #site-header, #page-header{
       display:none !important;
       height:0 !important;
       margin:0 !important;
@@ -55,7 +52,6 @@
       padding: 28px 18px 60px;
     }
 
-    /* Top */
     .top{
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -130,7 +126,8 @@
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: var(--shadow2);
-      overflow: visible; /* ✅ garante que nada “corte” no iPhone */
+      overflow: visible;
+      position: relative;
     }
 
     .side h3{
@@ -144,7 +141,7 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Caixa da orientação (agora aparece e fica bonita no mobile) */
+    /* ✅ ORIENTAÇÃO (corrigido para iPhone não “sumir” texto) */
     .rule{
       margin-top: 14px;
       padding: 14px;
@@ -153,23 +150,32 @@
       border: 1px solid rgba(47,125,225,0.18);
       color: #244b7a;
       font-size: 14px;
+      position: relative;
+      overflow: visible;
     }
     .ruleTitle{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 8px 14px;
+      display:block;               /* ✅ não encolhe */
+      width:100%;                  /* ✅ ocupa a linha */
+      text-align:center;           /* ✅ centraliza */
+      padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.98);
       border: 1px solid rgba(36,75,122,0.18);
-      font-weight: 850;
-      color:#2d3f66;
-      margin-bottom: 12px;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 1.2;
+      color:#1f3b66 !important;            /* ✅ força cor */
+      -webkit-text-fill-color:#1f3b66;     /* ✅ iOS fix */
+      position: relative;
+      z-index: 2;
+      margin: 0 0 12px 0;
     }
     .steps{
       display:grid;
       gap:10px;
       margin-top: 4px;
+      position: relative;
+      z-index: 2;
     }
     .step{
       background:#fff;
@@ -177,9 +183,10 @@
       border-radius: 14px;
       padding: 12px 12px;
       box-shadow: 0 8px 18px rgba(20,12,45,0.06);
-      color:#2a3242;
+      color:#2a3242 !important;
+      -webkit-text-fill-color:#2a3242; /* ✅ iOS fix */
     }
-    .step b{ color:#2d2250; }
+    .step b{ color:#2d2250 !important; -webkit-text-fill-color:#2d2250; }
 
     /* Sections */
     .section{
@@ -239,9 +246,7 @@
       align-items:center;
     }
 
-    .opt{
-      position:relative;
-    }
+    .opt{ position:relative; }
     .opt input{
       position:absolute;
       opacity:0;
@@ -291,7 +296,7 @@
       font-size: 14px;
     }
 
-    /* ✅ MOBILE: opções SIM/NÃO embaixo da pergunta */
+    /* ✅ MOBILE: opções SIM/NÃO embaixo */
     @media(max-width: 720px){
       .q{
         flex-direction: column;
@@ -459,10 +464,8 @@
       </div>
     </div>
 
-    <!-- FORM -->
     <form id="quiz">
 
-      <!-- BLOCO 1 -->
       <div class="section">
         <h2>Bloco 1 — Conexão e Presença</h2>
         <p class="note">O vínculo começa a enfraquecer quando o casal funciona, mas deixa de se encontrar.</p>
@@ -510,7 +513,6 @@
         <div class="alert">👉 Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
-      <!-- BLOCO 2 -->
       <div class="section">
         <h2>Bloco 2 — Comunicação e Escuta</h2>
         <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
@@ -558,7 +560,6 @@
         <div class="alert">👉 Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
       </div>
 
-      <!-- BLOCO 3 -->
       <div class="section">
         <h2>Bloco 3 — Afeto, Intimidade e Escolha</h2>
         <p class="note">Afeto e admiração são o combustível do vínculo. Sem isso, o casal entra em sobrevivência.</p>
@@ -606,7 +607,6 @@
         <div class="alert">👉 Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
       </div>
 
-      <!-- BLOCO 4 -->
       <div class="section">
         <h2>Bloco 4 — Conflitos e Padrões Repetidos</h2>
         <p class="note">Conflitos não resolvidos se transformam em distância emocional.</p>
@@ -647,14 +647,13 @@
           <div class="qtext"><span class="n">20.</span><span class="t">Vocês conseguem construir uma história própria, sem repetir padrões familiares?</span></div>
           <div class="opts">
             <span class="opt"><input type="radio" name="q20" id="q20s" value="SIM" required><label for="q20s"><span class="dot"></span>SIM</label></span>
-            <span class="opt"><input type="radio" name="q20" id="q20n" value="NÃO"><label for="q20n"><span class="dot"></span>NÃO</label></span>
+            <span class="opt"><input type="radio" name="q20" id="q20n" value="NÃO"><label for='q20n'><span class="dot"></span>NÃO</label></span>
           </div>
         </div>
 
         <div class="alert">👉 Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
       </div>
 
-      <!-- BLOCO 5 -->
       <div class="section">
         <h2>Bloco 5 — Responsabilidade e Lugar no Vínculo</h2>
         <p class="note">Quando os lugares se organizam, o vínculo respira.</p>
@@ -702,7 +701,6 @@
         <div class="alert">👉 Alerta: Quando os lugares se confundem, o amor cansa.</div>
       </div>
 
-      <!-- FINAL -->
       <div class="final">
         <h2>✅ Finalizar e enviar para receber o diagnóstico</h2>
         <p>
@@ -739,7 +737,6 @@
   </div>
 
   <script>
-    // CONFIG
     const WHATS_NUMBER = "5549998110445";
     const RESPONSAVEL = "Evandro Favoretto";
 
@@ -749,25 +746,21 @@
       "3) Vocês conseguem ficar em silêncio juntos sem sentir afastamento?",
       "4) Conseguem estar juntos sem distrações externas (celular, trabalho, filhos)?",
       "5) Existe sensação de parceria no relacionamento?",
-
       "6) Vocês se sentem ouvidos quando expressam o que sentem?",
       "7) As conversas costumam terminar em entendimento mútuo?",
       "8) Vocês conseguem falar sobre temas difíceis sem medo constante de conflito?",
       "9) Conseguem escutar um ao outro com presença, sem preparar defesa?",
       "10) Existe curiosidade para compreender o outro durante as conversas?",
-
       "11) Existe demonstração espontânea de carinho entre vocês?",
       "12) A intimidade faz parte da relação de forma natural?",
       "13) Vocês ainda se sentem escolhidos um pelo outro?",
       "14) Há espaço para vulnerabilidade emocional no casal?",
       "15) Existe admiração mútua na relação?",
-
       "16) Os conflitos costumam ser resolvidos sem se repetirem constantemente?",
       "17) Após um conflito, vocês conseguem reparar e se reaproximar?",
       "18) As decisões no relacionamento são tomadas de forma equilibrada?",
       "19) Os sentimentos difíceis são elaborados ao longo do tempo, sem acumular?",
       "20) Vocês conseguem construir uma história própria, sem repetir padrões familiares?",
-
       "21) A responsabilidade pelo relacionamento é compartilhada entre os dois?",
       "22) Existe equilíbrio entre dar e receber na relação?",
       "23) Os papéis de cada um no casal são claros?",
