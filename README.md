@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#ffffff" />
 
   <title>Diagnóstico Emocional de Casal | Onde estamos emocionalmente?</title>
-  <meta name="description" content="Responda SIM ou NÃO e descubra onde o vínculo precisa de cuidado. Envie suas respostas no WhatsApp para receber o diagnóstico." />
+  <meta name="description" content="Responda SIM ou NÃO e descubra onde o vínculo está desorganizado e o que precisa de cuidado agora. Envie suas respostas no WhatsApp para receber o diagnóstico." />
 
   <style>
     :root{
@@ -25,6 +25,20 @@
     }
 
     *{box-sizing:border-box}
+
+    /* ✅ FORÇAR SUMIR TÍTULO/HEADER DO GITHUB PAGES (tema/Jekyll) */
+    header, .site-header, .page-header, .project-name, .project-tagline,
+    #header, #site-header, #page-header,
+    body > h1:first-child, body > header:first-child,
+    .markdown-body > h1:first-child,
+    .container-lg > h1:first-child{
+      display:none !important;
+      height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+    }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -35,36 +49,10 @@
       line-height:1.55;
     }
 
-    /* ====== Top cover (imagem que você criou) ====== */
-    .topCover{
-      position:relative;
-      width:100%;
-      height: 220px;
-      overflow:hidden;
-      background: linear-gradient(135deg, rgba(108,75,191,0.10), rgba(47,125,225,0.10));
-      border-bottom: 1px solid rgba(31,36,48,0.06);
-    }
-    .topCover img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 1;
-    }
-    .topCover::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.0) 100%);
-      pointer-events:none;
-    }
-
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 10px 18px 60px; /* ✅ subimos o topo */
+      padding: 28px 18px 60px;
     }
 
     /* Top */
@@ -72,25 +60,20 @@
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
-      align-items: start;
-      margin-top: -110px; /* ✅ “sobe” o bloco pra ficar mais alto e premium */
+      align-items: stretch;
     }
     @media(max-width: 900px){
-      .top{
-        grid-template-columns: 1fr;
-        margin-top: -120px; /* ✅ sobe mais no mobile */
-      }
+      .top{grid-template-columns: 1fr}
     }
 
     .hero{
       background: linear-gradient(135deg, rgba(108,75,191,0.10), rgba(47,125,225,0.10));
       border: 1px solid rgba(108,75,191,0.18);
       border-radius: var(--radius);
-      padding: 26px 22px;
+      padding: 28px 24px;
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
-      backdrop-filter: blur(6px);
     }
 
     .badge{
@@ -102,14 +85,14 @@
       background: rgba(108,75,191,0.12);
       border: 1px solid rgba(108,75,191,0.18);
       color: #3b2a5f;
-      font-weight: 750;
+      font-weight: 700;
       letter-spacing: .2px;
       font-size: 13px;
     }
 
     .title{
       margin: 14px 0 8px;
-      font-size: 34px;
+      font-size: 36px;
       line-height:1.12;
       letter-spacing:-.4px;
     }
@@ -125,7 +108,7 @@
     }
 
     .mini{
-      margin-top: 16px;
+      margin-top: 18px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
@@ -139,9 +122,6 @@
       font-size: 13.5px;
       color: #3d4658;
       box-shadow: var(--shadow2);
-      display:flex;
-      align-items:center;
-      gap:8px;
     }
 
     .side{
@@ -150,6 +130,7 @@
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: var(--shadow2);
+      overflow: visible; /* ✅ garante que nada “corte” no iPhone */
     }
 
     .side h3{
@@ -163,9 +144,9 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Box “Como você recebe…” (sem tarja bugada) */
+    /* ✅ Caixa da orientação (agora aparece e fica bonita no mobile) */
     .rule{
-      margin-top: 8px; /* ✅ mais pra cima */
+      margin-top: 14px;
       padding: 14px;
       border-radius: 16px;
       background: rgba(47,125,225,0.08);
@@ -173,52 +154,32 @@
       color: #244b7a;
       font-size: 14px;
     }
-
-    .stepsRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 10px;
-    }
-
-    .stepChip{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow: 0 8px 18px rgba(20,12,45,0.06);
-      color:#2a3242;
-      flex: 1 1 240px;
-    }
-
-    .stepTag{
+    .ruleTitle{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 6px 10px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-weight: 900;
-      font-size: 12px;
-      color:#2d2250;
-      background: rgba(108,75,191,0.10);
-      border: 1px solid rgba(108,75,191,0.18);
-      white-space: nowrap;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(36,75,122,0.18);
+      font-weight: 850;
+      color:#2d3f66;
+      margin-bottom: 12px;
     }
-
-    .stepText{
-      font-weight: 700;
+    .steps{
+      display:grid;
+      gap:10px;
+      margin-top: 4px;
+    }
+    .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 12px;
+      box-shadow: 0 8px 18px rgba(20,12,45,0.06);
       color:#2a3242;
-      line-height: 1.25;
     }
-
-    .small{
-      margin-top: 10px;
-      font-size: 12.8px;
-      color: #6b7486;
-    }
+    .step b{ color:#2d2250; }
 
     /* Sections */
     .section{
@@ -240,39 +201,41 @@
       font-size: 14.5px;
     }
 
-    /* ✅ Perguntas com opções EMBAIXO */
+    /* Questions */
     .q{
       border-top: 1px solid var(--line);
       padding: 14px 0;
       display:flex;
-      flex-direction: column; /* ✅ aqui */
-      gap: 10px;
+      gap: 14px;
       align-items:flex-start;
+      justify-content: space-between;
     }
     .q:first-of-type{border-top: none; padding-top: 0;}
     .q:last-of-type{padding-bottom: 0;}
 
     .qtext{
-      width:100%;
+      flex: 1;
       min-width: 0;
+      padding-right: 12px;
     }
     .qtext .n{
       display:inline-block;
-      font-weight: 850;
+      font-weight: 750;
       color: rgba(108,75,191,0.95);
       margin-right: 8px;
     }
     .qtext .t{
       font-size: 15.5px;
       color: #1f2430;
-      font-weight: 650;
+      word-break: normal;
+      hyphens: auto;
     }
 
     .opts{
       display:flex;
       gap:10px;
       flex-wrap: wrap;
-      justify-content:flex-start;
+      justify-content:flex-end;
       align-items:center;
     }
 
@@ -294,13 +257,14 @@
       background: #fff;
       color: #2b3342;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 650;
       cursor:pointer;
       user-select:none;
       transition: .18s ease;
       box-shadow: 0 6px 18px rgba(20,12,45,0.06);
       white-space:nowrap;
     }
+
     .opt input:checked + label{
       border-color: rgba(108,75,191,0.55);
       background: rgba(108,75,191,0.10);
@@ -325,7 +289,28 @@
       border: 1px solid rgba(108,75,191,0.18);
       color:#3b2a5f;
       font-size: 14px;
-      font-weight: 650;
+    }
+
+    /* ✅ MOBILE: opções SIM/NÃO embaixo da pergunta */
+    @media(max-width: 720px){
+      .q{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .qtext{ padding-right: 0; }
+      .opts{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-content: start;
+      }
+      .opt label{
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+      }
     }
 
     /* Final */
@@ -373,7 +358,7 @@
       flex-wrap:wrap;
       align-items:center;
       color:#2d2250;
-      font-weight: 800;
+      font-weight: 700;
     }
     .chip{
       padding: 8px 12px;
@@ -382,7 +367,7 @@
       background: rgba(47,125,225,0.06);
       color:#244b7a;
       font-size: 13.5px;
-      font-weight: 850;
+      font-weight: 700;
     }
 
     .btn{
@@ -395,7 +380,7 @@
       text-decoration:none;
       border: none;
       cursor:pointer;
-      font-weight: 900;
+      font-weight: 800;
       font-size: 15px;
       transition: transform .12s ease, opacity .12s ease;
       user-select:none;
@@ -412,6 +397,12 @@
       border:1px solid var(--line);
     }
 
+    .small{
+      margin-top: 10px;
+      font-size: 12.8px;
+      color: #6b7486;
+    }
+
     .footer{
       margin-top: 30px;
       text-align:center;
@@ -421,23 +412,17 @@
 
     .req{
       color:#a63d3d;
-      font-weight: 900;
+      font-weight: 700;
     }
   </style>
 </head>
 
 <body>
-
-  <!-- ✅ imagem topo: assets/DOCTYPE html.png -->
-  <div class="topCover">
-    <img src="assets/DOCTYPE%20html.png" alt="Capa" />
-  </div>
-
   <div class="wrap">
 
     <div class="top">
       <div class="hero">
-        <div class="badge">Diagnóstico Emocional de Casal</div>
+        <div class="badge">🧠 Diagnóstico Emocional de Casal</div>
         <h1 class="title">“Onde estamos emocionalmente como casal?”</h1>
         <p class="subtitle">
           Este diagnóstico não é para apontar culpados. É para revelar onde o vínculo está desorganizado
@@ -460,20 +445,11 @@
         </p>
 
         <div class="rule">
-          <strong>Como você recebe o seu diagnóstico:</strong>
-          <div class="stepsRow">
-            <div class="stepChip">
-              <span class="stepTag">Passo 1</span>
-              <span class="stepText">Responda todas as perguntas (SIM ou NÃO).</span>
-            </div>
-            <div class="stepChip">
-              <span class="stepTag">Passo 2</span>
-              <span class="stepText">No final, clique em “Enviar respostas no WhatsApp”.</span>
-            </div>
-            <div class="stepChip">
-              <span class="stepTag">Passo 3</span>
-              <span class="stepText">Eu devolvo a leitura e o ponto central do vínculo.</span>
-            </div>
+          <div class="ruleTitle">Como você recebe o diagnóstico</div>
+          <div class="steps">
+            <div class="step"><b>Passo 1:</b> responda todas as perguntas marcando <b>SIM</b> ou <b>NÃO</b>.</div>
+            <div class="step"><b>Passo 2:</b> no final, clique em <b>“Enviar respostas no WhatsApp”</b>.</div>
+            <div class="step"><b>Passo 3:</b> eu te devolvo a leitura do diagnóstico e o ponto central do vínculo.</div>
           </div>
         </div>
 
@@ -489,7 +465,7 @@
       <!-- BLOCO 1 -->
       <div class="section">
         <h2>Bloco 1 — Conexão e Presença</h2>
-        <p class="note">Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</p>
+        <p class="note">O vínculo começa a enfraquecer quando o casal funciona, mas deixa de se encontrar.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">1.</span><span class="t">Vocês se sentem emocionalmente conectados no dia a dia?</span></div>
@@ -531,13 +507,13 @@
           </div>
         </div>
 
-        <div class="alert">Alerta: quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
+        <div class="alert">👉 Alerta: Quando a presença diminui, o casal começa a funcionar, mas deixa de se encontrar.</div>
       </div>
 
       <!-- BLOCO 2 -->
       <div class="section">
         <h2>Bloco 2 — Comunicação e Escuta</h2>
-        <p class="note">Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</p>
+        <p class="note">Quando a escuta termina, o vínculo entra em defesa, não em cuidado.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">6.</span><span class="t">Vocês se sentem ouvidos quando expressam o que sentem?</span></div>
@@ -579,13 +555,13 @@
           </div>
         </div>
 
-        <div class="alert">Alerta: quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
+        <div class="alert">👉 Alerta: Quando a escuta acaba, o vínculo se defende em vez de se cuidar.</div>
       </div>
 
       <!-- BLOCO 3 -->
       <div class="section">
         <h2>Bloco 3 — Afeto, Intimidade e Escolha</h2>
-        <p class="note">Sem afeto e admiração, o casal entra em modo de sobrevivência.</p>
+        <p class="note">Afeto e admiração são o combustível do vínculo. Sem isso, o casal entra em sobrevivência.</p>
 
         <div class="q">
           <div class="qtext"><span class="n">11.</span><span class="t">Existe demonstração espontânea de carinho entre vocês?</span></div>
@@ -627,12 +603,12 @@
           </div>
         </div>
 
-        <div class="alert">Alerta: sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
+        <div class="alert">👉 Alerta: Sem afeto e admiração, o casal entra em modo de sobrevivência.</div>
       </div>
 
       <!-- BLOCO 4 -->
       <div class="section">
-        <h2>Bloco 4 — Conflitos e Padrões</h2>
+        <h2>Bloco 4 — Conflitos e Padrões Repetidos</h2>
         <p class="note">Conflitos não resolvidos se transformam em distância emocional.</p>
 
         <div class="q">
@@ -675,7 +651,7 @@
           </div>
         </div>
 
-        <div class="alert">Alerta: conflitos não resolvidos se transformam em distância emocional.</div>
+        <div class="alert">👉 Alerta: Conflitos não resolvidos se transformam em distância emocional.</div>
       </div>
 
       <!-- BLOCO 5 -->
@@ -723,7 +699,7 @@
           </div>
         </div>
 
-        <div class="alert">Alerta: quando os lugares se confundem, o amor cansa.</div>
+        <div class="alert">👉 Alerta: Quando os lugares se confundem, o amor cansa.</div>
       </div>
 
       <!-- FINAL -->
@@ -731,7 +707,7 @@
         <h2>✅ Finalizar e enviar para receber o diagnóstico</h2>
         <p>
           Ao clicar no botão abaixo, suas respostas serão organizadas automaticamente e enviadas no WhatsApp.
-          Com base nisso, eu te devolvo a leitura do diagnóstico e o ponto central que aparece no vínculo.
+          Com base nisso, eu te devolvo a leitura do diagnóstico (vermelho / amarelo / verde) e o ponto central que aparece no vínculo.
         </p>
 
         <div class="summary">
@@ -755,7 +731,7 @@
         </div>
 
         <div class="footer">
-          © <span id="year"></span> • Diagnóstico Emocional de Casal • Experiência simples, direta e acolhedora.
+          © <span id="year"></span> • Diagnóstico Emocional de Casal • Desenvolvido para uma experiência simples, direta e acolhedora.
         </div>
       </div>
 
@@ -764,8 +740,8 @@
 
   <script>
     // CONFIG
-    const WHATS_NUMBER = "5549998110445"; // Evandro - 55 + DDD + número
-    const RESPONSAVEL = ""; // opcional (deixe vazio se não quiser)
+    const WHATS_NUMBER = "5549998110445";
+    const RESPONSAVEL = "Evandro Favoretto";
 
     const questions = [
       "1) Vocês se sentem emocionalmente conectados no dia a dia?",
@@ -829,30 +805,27 @@
     }
 
     function buildMessage(){
-      const { answers, yes, no, miss } = getAnswers();
-
-      const responsavelLine = (RESPONSAVEL && RESPONSAVEL.trim().length)
-        ? `\nResponsável: ${RESPONSAVEL}\n`
-        : `\n`;
+      const { answers, yes, no } = getAnswers();
 
       const header =
 `DIAGNÓSTICO EMOCIONAL DE CASAL
-(Onde estamos emocionalmente como casal?)${responsavelLine}
+(Onde estamos emocionalmente como casal?)
+
+Responsável: ${RESPONSAVEL}
+
 Resumo:
 • SIM: ${yes}
 • NÃO: ${no}
 
 Respostas:`;
 
-      const lines = answers.map(item => {
-        return `${item.i}. ${item.a} — ${item.q}`;
-      }).join("\n");
+      const lines = answers.map(item => `${item.i}. ${item.a} — ${item.q}`).join("\n");
 
       const footer =
 `\n\nPedido:
 Quero receber a leitura do meu diagnóstico e o ponto central que aparece no vínculo.`;
 
-      return { text: `${header}\n\n${lines}${footer}`, yes, no, miss };
+      return { text: `${header}\n\n${lines}${footer}` };
     }
 
     function updateUI(){
@@ -869,8 +842,7 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
 
       if(allDone){
         const { text } = buildMessage();
-        const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
-        btnWhats.href = url;
+        btnWhats.href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
       } else {
         btnWhats.href = "#";
       }
@@ -880,13 +852,12 @@ Quero receber a leitura do meu diagnóstico e o ponto central que aparece no ví
 
     btnCopy.addEventListener("click", async () => {
       const { miss } = getAnswers();
-      const { text } = buildMessage();
-
       if(miss !== 0){
         alert("Responda todas as perguntas para copiar o diagnóstico completo.");
         return;
       }
       try{
+        const { text } = buildMessage();
         await navigator.clipboard.writeText(text);
         btnCopy.textContent = "Copiado!";
         setTimeout(()=> btnCopy.textContent = "Copiar respostas", 1200);
